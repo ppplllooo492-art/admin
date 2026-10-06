@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ROBLOX MUSIC</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+            font-family: Arial, sans-serif;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(20, 60, 255, 0.45),
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(170, 0, 255, 0.25),
+                    transparent 35%
+                ),
+                #02051a;
+
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: min(1100px, 100%);
+        }
+
+        .music-card {
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            border: 1px solid rgba(0, 238, 255, 0.7);
+
+            background: rgba(5, 10, 39, 0.85);
+
+            box-shadow:
+                0 0 35px rgba(0, 217, 255, 0.35),
+                0 0 100px rgba(120, 0, 255, 0.2);
+
+            backdrop-filter: blur(10px);
+        }
+
+        /* รูปปก */
+        .cover {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height: 75vh;
+
+            object-fit: cover;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                filter 0.35s ease;
+        }
+
+        .cover:hover {
+            transform: scale(1.015);
+
+            filter: brightness(1.1);
+        }
+
+        /* เอฟเฟกต์ด้านล่างรูป */
+        .overlay {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 45%;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(2, 5, 26, 0.95)
+                );
+        }
+
+        /* ส่วนปุ่ม */
+        .content {
+            position: relative;
+
+            z-index: 5;
+
+            margin-top: -120px;
+
+            padding:
+                20px
+                25px
+                40px;
+
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: 10px;
+
+            font-size: clamp(30px, 6vw, 60px);
+
+            font-weight: 900;
+
+            letter-spacing: 4px;
+
+            color: white;
+
+            text-shadow:
+                0 0 10px #00eaff,
+                0 0 25px #006eff,
+                0 0 45px #7b00ff;
+        }
+
+        .description {
+            margin-bottom: 25px;
+
+            color: #cbdcff;
+
+            font-size: clamp(14px, 2.5vw, 19px);
+        }
+
+        /* ปุ่มเข้าเว็บ */
+        .enter-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            min-width: 250px;
+
+            padding:
+                16px
+                30px;
+
+            border-radius: 999px;
+
+            border: 1px solid
+                rgba(150, 250, 255, 0.8);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #007cff,
+                    #7b18ff,
+                    #ff19a8
+                );
+
+            box-shadow:
+                0 0 20px
+                    rgba(0, 140, 255, 0.6),
+                inset 0 0 10px
+                    rgba(255, 255, 255, 0.15);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .enter-button:hover {
+            transform:
+                translateY(-3px)
+                scale(1.03);
+
+            box-shadow:
+                0 0 30px
+                    rgba(0, 220, 255, 0.9),
+                0 0 60px
+                    rgba(120, 0, 255, 0.5);
+        }
+
+        .enter-button:active {
+            transform: scale(0.96);
+        }
+
+        .hint {
+            margin-top: 15px;
+
+            color: #91a8d8;
+
+            font-size: 13px;
+        }
+
+        .footer {
+            margin-top: 18px;
+
+            color: #7083b5;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        /* มือถือ */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .music-card {
+                border-radius: 18px;
+            }
+
+            .content {
+                margin-top: -80px;
+
+                padding:
+                    15px
+                    14px
+                    28px;
+            }
+
+            .enter-button {
+                width: 100%;
+
+                min-width: 0;
+            }
+
+            .hint {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="music-card">
+
+            <!--
+                กดรูปแล้วเข้าเว็บหลัก
+            -->
+            <a
+                href="https://ppplllooo492-art.github.io/-/"
+                aria-label="เข้าสู่เว็บไซต์หลัก"
+            >
+
+                <img
+                    src="cover.png"
+                    class="cover"
+                    alt="ROBLOX MUSIC"
+                >
+
+            </a>
+
+            <div class="overlay"></div>
+
+            <div class="content">
+
+                <h1 class="title">
+                    ROBLOX MUSIC
+                </h1>
+
+                <p class="description">
+                    🎵 PLAY • EXPLORE • ENJOY 🎵
+                </p>
+
+                <!-- ปุ่มเข้าเว็บหลัก -->
+                <a
+                    class="enter-button"
+                    href="https://ppplllooo492-art.github.io/-/"
+                >
+                    🎵 เข้าสู่เว็บหลัก
+                </a>
+
+                <div class="hint">
+                    หรือแตะที่รูปปกเพื่อเข้าสู่เว็บไซต์
+                </div>
+
+                <div class="footer">
+                    ROBLOX MUSIC • GOOD MUSIC • BETTER VIBES
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
